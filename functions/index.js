@@ -5,7 +5,7 @@ const data = require('../public/db.json');
 const router = jsonServer.router(data);
 const server = jsonServer.create();
 
-server.use(jsonServer.defaults(['./public']));
+server.use(jsonServer.defaults({ static: '../public' }));
 server.use(router);
 
 exports.api = functions.https.onRequest(server);
